@@ -24,7 +24,7 @@ public class Sample {
 		System.out.println("URL is launched");
 		driver.findElement(By.xpath("/html/body/div/div/a")).click();
 	}
-	@Test(dataProvider="dataset",priority=0)
+	@Test(dataProvider="dataset",priority=1)
 	
 	public void Register(String Uname,String Pswd,String CPswd) {
 		
@@ -48,7 +48,7 @@ public class Sample {
 			  {"sudha5695","sudhakck","sudhakck"}
 		      };
 	  }
-	 @Test(priority=1)
+	 @Test(priority=2)
 	 public void Register() {
 		 driver.findElement(By.xpath("//*[@id=\'submit\']")).click();
 		 System.out.println("Click the register");

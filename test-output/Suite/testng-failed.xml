@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test thread-count="5" name="Test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="methods">
+  <test thread-count="5" name="Test(failed)" parallel="methods">
+    <parameter name="browser" value="FireFox"/>
     <classes>
-      <class name="annotations.GoogleTest">
+      <class name="keywordTest.GroupTest">
         <methods>
-          <include name="closebrowser"/>
-          <include name="url1"/>
-          <include name="Test2"/>
-          <include name="url"/>
-          <include name="link1"/>
           <include name="browser"/>
-          <include name="link"/>
         </methods>
-      </class> <!-- annotations.GoogleTest -->
+      </class> <!-- keywordTest.GroupTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

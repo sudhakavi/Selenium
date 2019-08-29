@@ -3,15 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="parameterizationTest.Assignment1">
+      <class name="annotations.DDExpenserTracker">
         <methods>
-          <include name="listcategory"/>
-          <include name="browser"/>
-          <include name="loginTest" invocation-numbers="0"/>
-          <include name="url"/>
-          <include name="AddExpenses"/>
+          <include name="login"/>
         </methods>
-      </class> <!-- parameterizationTest.Assignment1 -->
+      </class> <!-- annotations.DDExpenserTracker -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -30,11 +30,11 @@
 	public void Test() {
 		System.out.println("Test is executed");
 	}
-	@org.testng.annotations.Test(priority=0,groups= "A")
+	@org.testng.annotations.Test(priority=0,groups= "B")
 	public void Test1() {
 		System.out.println("Test 1 is executed");
 	}
-	@org.testng.annotations.Test(priority=1,groups= "A")
+	@org.testng.annotations.Test(priority=1,groups= "C")
 	public void Test2() {
 		System.out.println("Test 2 is executed");
 	}

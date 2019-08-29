@@ -3,8 +3,11 @@ package parameterizationTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
@@ -14,8 +17,10 @@ public class Assignment1 {
 	WebDriver driver;
 	@BeforeSuite
 	public void browser() {
-		System.setProperty("webdriver.gecko.driver", "F:\\Drivers\\geckodriver.exe");
-		driver=new FirefoxDriver();
+		//System.setProperty("webdriver.gecko.driver", "F:\\Drivers\\geckodriver.exe");
+		//driver= new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", "F:\\Drivers\\chromedriver.exe");
+		driver= new ChromeDriver();
 		driver.manage().window().maximize();
 		System.out.println("Browser is launched");
 	}
@@ -25,7 +30,7 @@ public class Assignment1 {
 		System.out.println("URL is launched");
 		}
 	
-    @Test(dataProvider="dataset",priority=0)
+    @Test(dataProvider="dataset",priority=1)
 	
 	public void Register(String Uname,String Pswd,String CPswd) {
     	driver.findElement(By.xpath("/html/body/div/div/a")).click();
@@ -46,16 +51,22 @@ public class Assignment1 {
 	  {
 		  return new Object[][]
 		      {
-			  {"sudha5695","sudhakck","sudhakck"}
+			  {"software","testing","testing"}
 		      };
 	  }
-	@Test(priority=1)
+	@Test(priority=2)
 	 public void Register() {
+		 
 		 driver.findElement(By.xpath("//*[@id=\'submit\']")).click();
+		 WebElement register =  driver.findElement(By.xpath("//*[@id=\'submit\']"));
+	     WebDriverWait wait=new WebDriverWait(driver,10); 
+	     wait.until(ExpectedConditions.visibilityOf(register));
+	    
 		 System.out.println("Click the register");
 	 }
+	
 
-    @Test (dataProvider = "dataset1",priority=2)
+    @Test (dataProvider = "dataset1",priority=3)
 	public void loginTest(String Uname1,String Pswd) {
 		WebElement username=driver.findElement(By.xpath("//*[@id='login']"));
 		username.sendKeys(Uname1);
@@ -70,16 +81,17 @@ public class Assignment1 {
 	 {
 		  return new Object[][]
 		      {
-		  {"sudha5695","sudhakck"}
+		  {"software","testing"}
 		     };
 	  }
 	
-	 @Test(priority=3)
+	 @Test(priority=4)
 	  public void login() {
 		  driver.findElement(By.xpath("//*[@id=\'submit\']")).click();
 			System.out.println("Click");
 	  }
-	 @Test(priority=4)
+
+	 @Test(priority=5)
 	 public void listcategory() {
 		 driver.findElement(By.xpath("//*[@id=\"go_list_categories\"]")).click();
 		 driver.findElement(By.xpath("//*[@id=\"go_add_category\"]")).click();
@@ -93,7 +105,7 @@ public class Assignment1 {
 		 driver.findElement(By.id("submit")).click();
 			System.out.println("List category is added");
 	 }
-	 @Test(priority=5)
+	 @Test(priority=6)
 	 public void AddExpenses() {
 		 driver.findElement(By.xpath("//*[@id=\"go_add_expense\"]")).click();
 		 driver.findElement(By.id("day")).sendKeys("12");
@@ -109,8 +121,9 @@ public class Assignment1 {
 		  driver.findElement(By.name("reason")).sendKeys("checking");
 		  driver.findElement(By.id("submit")).click();
 		 System.out.println("Add expenses is added");
+	 
+	}
 	 }
-}
 
 
 

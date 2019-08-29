@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="methods">
+  <test thread-count="5" name="Test(failed)" parallel="methods">
+    <parameter name="browser" value="FireFox"/>
     <classes>
-      <class name="parameterizationTest.Assignment1">
+      <class name="keywordTest.GroupTest">
         <methods>
-          <include name="listcategory"/>
           <include name="browser"/>
-          <include name="loginTest" invocation-numbers="0"/>
-          <include name="url"/>
-          <include name="AddExpenses"/>
         </methods>
-      </class> <!-- parameterizationTest.Assignment1 -->
+      </class> <!-- keywordTest.GroupTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
